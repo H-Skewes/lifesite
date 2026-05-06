@@ -1,0 +1,320 @@
+:root {
+  --bg: #a8a8a8;
+  --window-bg: #c0c0c0;
+  --titlebar-bg: #000080;
+  --titlebar-text: #ffffff;
+  --border-light: #ffffff;
+  --border-dark: #808080;
+  --border-darker: #404040;
+  --text: #000000;
+  --text-muted: #555555;
+  --font-body: "Courier New", Courier, monospace;
+  --font-display: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dash-root {
+  min-height: 100vh;
+  background: var(--bg);
+  background-image: repeating-conic-gradient(#999 0% 25%, #aaa 0% 50%);
+  background-size: 8px 8px;
+  font-family: var(--font-body);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top bar (profile button) ── */
+.dash-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px 12px;
+  background: var(--window-bg);
+  border-bottom: 2px solid var(--border-darker);
+}
+
+.dash-topbar-spacer {
+  flex: 1;
+}
+
+.dash-avatar-btn {
+  width: 36px;
+  height: 36px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: var(--window-bg);
+  color: var(--text);
+  cursor: pointer;
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darker);
+  border-bottom: 2px solid var(--border-darker);
+}
+
+.dash-avatar-btn:active {
+  border-top: 2px solid var(--border-darker);
+  border-left: 2px solid var(--border-darker);
+  border-right: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+}
+
+/* ── Header ── */
+.dash-header {
+  text-align: center;
+  padding: 2rem 1rem 0;
+  background: transparent;
+}
+
+.dash-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 0.4em;
+  font-weight: normal;
+}
+
+/* ── Nav subheader ── */
+.dash-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-top: 2px solid var(--border-darker);
+  border-bottom: 2px solid var(--border-darker);
+  background: var(--window-bg);
+}
+
+.dash-nav a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 2px 0;
+}
+
+.dash-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ── Main ── */
+.dash-main {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dash-error {
+  color: #aa0000;
+  font-size: 0.8rem;
+}
+
+.dash-loading {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Widget grid ── */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* tablet */
+@media (max-width: 900px) {
+  .dash-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dash-widget--calendar {
+    grid-column: 1 / -1;
+  }
+}
+
+/* mobile */
+@media (max-width: 560px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-widget--calendar {
+    grid-column: auto;
+  }
+}
+
+/* ── Widget base ── */
+.dash-widget {
+  background: var(--window-bg);
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darker);
+  border-bottom: 2px solid var(--border-darker);
+}
+
+.widget-titlebar {
+  background: var(--titlebar-bg);
+  color: var(--titlebar-text);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  user-select: none;
+}
+
+.widget-body {
+  padding: 0.75rem;
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.widget-body--row {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.widget-empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Email widget — full width ── */
+.dash-widget--emails {
+  width: 100%;
+}
+
+/* ── Calendar events ── */
+.event-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 0.4rem;
+}
+
+.event-date {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.event-title {
+  font-weight: bold;
+}
+
+.event-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Todos ── */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.todo-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.todo-item--done .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-check {
+  flex-shrink: 0;
+}
+
+/* ── Note ── */
+.note-title {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.note-preview {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.note-date {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+/* ── Emails ── */
+.email-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 0.4rem;
+}
+
+.email-subject {
+  font-weight: bold;
+}
+
+.email-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ── Footer ── */
+.dash-footer {
+  padding: 0.75rem 1.5rem;
+  background: var(--window-bg);
+  border-top: 2px solid var(--border-darker);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dash-logout-btn {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  background: var(--window-bg);
+  color: var(--text);
+  cursor: pointer;
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darker);
+  border-bottom: 2px solid var(--border-darker);
+}
+
+.dash-logout-btn:active {
+  border-top: 2px solid var(--border-darker);
+  border-left: 2px solid var(--border-darker);
+  border-right: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+}
