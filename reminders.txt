@@ -1,7 +1,11 @@
 so next time work on this
-uuid creation for events
-jwts for login
-hashing password store
-create user route
 change password route
 emailing
+whenever you add in new routes post setting up auth frontend
+you need to get depends on get_current_user which validates the jwt
+@router.get("/events")
+async def get_events(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+like this ^ on  every route thats protected so anything thats not login and createuser
