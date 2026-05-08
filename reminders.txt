@@ -1,0 +1,7 @@
+so next time work on this
+uuid creation for events
+jwts for login
+hashing password store
+create user route
+change password route
+emailing

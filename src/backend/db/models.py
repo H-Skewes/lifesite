@@ -1,5 +1,5 @@
-from database import Base
-from sqlalchemy import Column, Integer, String
+from db.database import Base
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
 
 class User(Base):
     __tablename__ = "users"
@@ -8,12 +8,12 @@ class User(Base):
     password = Column(String, unique=True)
 
 
-class Events(Base):
+class Event(Base):
     __tablename__ = "events"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    date = Column(String)
-    userid = Column(Integer)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    date = Column(Date, nullable=False)
+    description = Column(String)
 
 
 class Todo(Base):
