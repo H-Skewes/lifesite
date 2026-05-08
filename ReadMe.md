@@ -7,17 +7,25 @@ mapper that integrates with a hardware project I am doing, a fashion designer fo
 features.
 
 
-# BackLog
+## BackLog
+
+- Fully complete login/create api connection - before May 12th
+- Fully complete events api on backend - before May 15
+- Fully complete initial calendar view on frontend and setup api - end of May
+- Fully complete daily todos modal on calendar page - end of May
+- Fully complete budgeting dashboard backend and frontend - this is time consuming end of June most likely
+- Fully setup emailing notifcations for todos and weather in morning - end on June
+- Fully complete fashion feature for styling outfits from closet - end of July
+- Fully integrate sun detector for backyard lighting heat map - End of August
+## Complete
+- Backend login api
 
 
+## Necessary Installs for dnf/Fedora 
 
-# Complete
+Docker files coming soon after calendar and todo are done
 
-
-
-# Necessary Installs for dnf/Fedora or apt/Ubuntu
-
-## Fedora
+### Fedora
 
 ```
 sudo dnf install python3 python3-devel -y
