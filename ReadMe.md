@@ -9,16 +9,20 @@ features.
 
 ## BackLog
 
-- Fully complete login/create api connection - before May 12th
+- Fully complete login/create api connection plus ui - before May 12th
 - Fully complete events api on backend - before May 15
 - Fully complete initial calendar view on frontend and setup api - end of May
 - Fully complete daily todos modal on calendar page - end of May
 - Fully complete budgeting dashboard backend and frontend - this is time consuming end of June most likely
+- Make pages protected on frontend specifically, this will be done on backend already - Beginning of June
 - Fully setup emailing notifcations for todos and weather in morning - end on June
+- Begin working on security headers - beginning of July
 - Fully complete fashion feature for styling outfits from closet - end of July
-- Fully integrate sun detector for backyard lighting heat map - End of August
+- Fully integrate sun detector for backyard lighting heat map - Likely before spring 2027
+
 ## Complete
-- Backend login api
+- Backend login/creation api
+- frontend login/creation/token verification api fetch
 
 
 ## Necessary Installs for dnf/Fedora 
