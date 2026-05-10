@@ -1,0 +1,30 @@
+.window {
+  background: var(--window-bg);
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darker);
+  border-bottom: 2px solid var(--border-darker);
+}
+
+/* CreateUser.css — sizing and position only */
+.page-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.window {
+  height: 300px;
+  width: 400px;
+}
+
+.createuser-button {
+  background-color: #D4AF37;
+  color: #000000;
+}
+
+.createuser-titlebar{
+    background-color: #D4AF37;
+    color: #000000; 
+}

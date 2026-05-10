@@ -27,7 +27,7 @@ export default function CreateUser() {
   return (
     <div className="page-root">
       <div className="window">
-        <div className="titlebar">Create Account</div>
+        <div className="createuser-titlebar">Create Account</div>
         <div className="window-body">
           <form onSubmit={handleSubmit}>
             <label>
@@ -49,7 +49,7 @@ export default function CreateUser() {
               />
             </label>
             {message && <p className="message">{message}</p>}
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading} className="createuser-button">
               {loading ? 'Creating...' : 'Create Account'}
             </button>
           </form>
