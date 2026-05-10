@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { createUser } from '../api'
-import './CreateUser.css'
+import { loginUser } from '../api'
+import './Login.css'
 
-export default function CreateUser() {
+export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState<string | null>(null)
@@ -14,8 +14,8 @@ export default function CreateUser() {
     setMessage(null)
 
     try {
-      const data = await createUser(username, password)
-      setMessage('Account created successfully')
+      const data = await loginUser(username, password)
+      setMessage('Login Successful')
       console.log(data)
     } catch (err) {
       setMessage('Something went wrong')
@@ -51,8 +51,8 @@ export default function CreateUser() {
                 />
               </label>
               {message && <p className="message">{message}</p>}
-              <button type="submit" disabled={loading} className="createuser-button">
-                {loading ? 'Creating...' : 'Create Account'}
+              <button type="submit" disabled={loading} className="login-button">
+                {loading ? 'Creating...' : 'You are logged in'}
               </button>
             </form>
         </div>

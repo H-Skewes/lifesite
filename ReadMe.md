@@ -9,7 +9,6 @@ features.
 
 ## BackLog
 
-- Fully complete login/create api connection plus ui - before May 12th
 - Fully complete events api on backend - before May 15
 - Fully complete initial calendar view on frontend and setup api - end of May
 - Fully complete daily todos modal on calendar page - end of May
@@ -23,6 +22,8 @@ features.
 ## Complete
 - Backend login/creation api
 - frontend login/creation/token verification api fetch
+- Fully complete login/create api connection plus ui - before done May 10th
+
 
 
 ## Necessary Installs for dnf/Fedora 
