@@ -1,22 +1,35 @@
-import { useState } from 'react'
-import { createUser } from './api'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { AuthProvider, useAuth } from './hooks/useAuth'
+import Login from './pages/Login'
+import CreateUser from './pages/CreateUser'
+import Dashboard from './pages/Dashboard'
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth()
+  return user ? <>{children}</> : <Navigate to="/login" replace />
+}
+
+function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/createuser" element={<CreateUser />} />
+
+      <Route path="/" element={
+        <ProtectedRoute><Dashboard /></ProtectedRoute>
+      } />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  )
+}
 
 export default function App() {
-  const [result, setResult] = useState<string>("")
-
-  async function handleTest() {
-    try {
-      const data = await createUser("testuser", "testpass123")
-      setResult(JSON.stringify(data))
-    } catch (err) {
-      setResult("error: " + err)
-    }
-  }
-
   return (
-    <div>
-      <button onClick={handleTest}>Test Create User</button>
-      <p>{result}</p>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
