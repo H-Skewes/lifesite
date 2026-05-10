@@ -26,35 +26,38 @@ export default function CreateUser() {
 
   return (
     <div className="page-root">
-      <div className="window">
-        <div className="createuser-titlebar">Create Account</div>
-        <div className="window-body">
-          <form onSubmit={handleSubmit}>
-            <label>
-              Username
-              <input
-                type="text"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Password
-              <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-              />
-            </label>
-            {message && <p className="message">{message}</p>}
-            <button type="submit" disabled={loading} className="createuser-button">
-              {loading ? 'Creating...' : 'Create Account'}
-            </button>
-          </form>
+      <div className="header">LifeSite</div>
+      <div className="page-content">
+        <div className="window">
+          <div className="createuser-titlebar">Create Account</div>
+          <div className="window-body">
+            <form onSubmit={handleSubmit}>
+              <label>
+                Username
+                <input
+                  type="text"
+                  value={username}
+                  onChange={e => setUsername(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Password
+                <input
+                  type="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                />
+              </label>
+              {message && <p className="message">{message}</p>}
+              <button type="submit" disabled={loading} className="createuser-button">
+                {loading ? 'Creating...' : 'Create Account'}
+              </button>
+            </form>
         </div>
       </div>
+    </div>
     </div>
   )
 }

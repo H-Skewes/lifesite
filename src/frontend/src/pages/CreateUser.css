@@ -1,17 +1,26 @@
-.window {
-  background: var(--window-bg);
-  border-top: 2px solid var(--border-light);
-  border-left: 2px solid var(--border-light);
-  border-right: 2px solid var(--border-darker);
-  border-bottom: 2px solid var(--border-darker);
+.page-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* CreateUser.css — sizing and position only */
-.page-root {
+.header {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #6E1300;
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  -webkit-text-stroke: 1px black;
+  font-family: "Fantasyfont", fallback-font, sans-serif;
+  letter-spacing: 0.15em
+}
+
+.page-content {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 
 .window {
@@ -20,11 +29,6 @@
 }
 
 .createuser-button {
-  background-color: #D4AF37;
+  background-color: #6E1300;
   color: #000000;
-}
-
-.createuser-titlebar{
-    background-color: #D4AF37;
-    color: #000000; 
 }

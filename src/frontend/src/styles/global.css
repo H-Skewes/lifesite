@@ -1,12 +1,12 @@
 :root {
-  --bg: #6E1300;
-  --window-bg: #991D0B;
-  --titlebar-bg: #D4AF37;
-  --titlebar-text: #000000;
+  --bg: #000000;
+  --window-bg: #000000;
+  --titlebar-bg: #6E1300;
+  --titlebar-text: #6E1300;
   --border-light: #ffffff;
   --border-dark: #808080;
   --border-darker: #404040;
-  --text: #000000;
+  --text: #6E1300;
   --font: "Courier New", Courier, monospace;
 }
 
@@ -75,6 +75,7 @@ button {
   padding: 6px 16px;
   background: var(--window-bg);
   cursor: pointer;
+  --text: #6E1300;
   border-top: 2px solid var(--border-light);
   border-left: 2px solid var(--border-light);
   border-right: 2px solid var(--border-darker);
@@ -91,4 +92,9 @@ button:active {
 button:disabled {
   color: var(--border-dark);
   cursor: not-allowed;
+}
+
+@font-face {
+  font-family: "Fantasyfont";
+  src: url("/fonts/Vighty.woff2") format("woff2");
 }
