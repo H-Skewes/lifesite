@@ -17,4 +17,4 @@ dependencies = [
     "uvicorn[standard]>=0.46.0",
 ]
 [tool.uv]
-pythonpath = ["src/backend"]
+
