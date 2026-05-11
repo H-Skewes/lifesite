@@ -11,13 +11,19 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<LoginResponse | null>(null)
+  // initialize from localStorage so refresh doesn't log user out
+  const [user, setUser] = useState<LoginResponse | null>(() => {
+    const stored = localStorage.getItem("user")
+    return stored ? JSON.parse(stored) : null
+  })
 
   function login(userData: LoginResponse) {
+    localStorage.setItem("user", JSON.stringify(userData))  // persist it
     setUser(userData)
   }
 
   function logout() {
+    localStorage.removeItem("user")  // clear it
     setUser(null)
   }
 

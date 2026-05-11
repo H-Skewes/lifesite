@@ -2,7 +2,7 @@
   --bg: #000000;
   --window-bg: #000000;
   --titlebar-bg: #6E1300;
-  --titlebar-text: #6E1300;
+  --titlebar-text: #000000;
   --border-light: #ffffff;
   --border-dark: #808080;
   --border-darker: #404040;
@@ -15,7 +15,10 @@
   margin: 0;
   padding: 0;
 }
-
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 body {
   font-family: var(--font);
   background: var(--bg);

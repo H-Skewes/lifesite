@@ -8,7 +8,7 @@ features.
 
 
 ## BackLog
-
+- Finish the home page make basic links to other pages, make basic weather pull for area
 - Fully complete events api on backend - before May 15
 - Fully complete initial calendar view on frontend and setup api - end of May
 - Fully complete daily todos modal on calendar page - end of May

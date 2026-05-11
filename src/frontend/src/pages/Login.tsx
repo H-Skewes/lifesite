@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { loginUser } from '../api'
+import { useAuth } from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
 export default function Login() {
@@ -7,16 +9,17 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
     setMessage(null)
-
     try {
       const data = await loginUser(username, password)
-      setMessage('Login Successful')
-      console.log(data)
+      login(data)
+      navigate('/')
     } catch (err) {
       setMessage('Something went wrong')
     } finally {
@@ -52,7 +55,7 @@ export default function Login() {
               </label>
               {message && <p className="message">{message}</p>}
               <button type="submit" disabled={loading} className="login-button">
-                {loading ? 'Creating...' : 'You are logged in'}
+                {loading ? 'Logging in...' : 'Login'}
               </button>
             </form>
         </div>
